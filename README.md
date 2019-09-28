@@ -68,7 +68,7 @@ This process included deleting duplicates found in the ID column and getting rid
 
 For dealing with our placeholder values in sqft_basement, I used my knowledge that sqft_living accounted for entire living space including basement while sqft_above was the living space without the basement. Therefore, I subtracted the two for the rows without basement values and inputed the absolute value of the difference. Noticing that most of our houses don't have basements, I changed the feature to a boolean type, True if the house has a basement and False if it doesn't.
 
-For dealing with out null values, I found that the majority, mean and median of view, yr_renovated and waterfront had value zero. Therefore, i filled the null values with zero. Aftwerwards, waterfront and yr_renovated was changed to a booelan type since there were only two values for waterfront and most of the yr_built values were unique. Since view was over 80% filled with zero values, I decided to drop the feature all together. 
+For dealing with out null values, I found that the majority and median of view, yr_renovated and waterfront had value zero. Therefore, i filled the null values with zero. Aftwerwards, waterfront and yr_renovated was changed to a booelan type since there were only two values for waterfront and most of the yr_built values were unique. Since view was over 80% filled with zero values, I decided to drop the feature all together. 
 
 At various moments in the notebook, I run a muticollinearity test to drop any features too correlated to each other.
 
