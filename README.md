@@ -4,7 +4,7 @@
 
 ## Introduction
 
-In this project, I explored the cycle of Data Science through the use of the King County Housing Data to help give Home Owners a spot on house price estimate for when they sell.
+In this project, I explored the cycle of Data Science through the use of the King County Housing Data to help give home owners a better idea on house price estimate for when they sell.
 
 The packages necessary are loaded at the beginning of the notebook:
 
