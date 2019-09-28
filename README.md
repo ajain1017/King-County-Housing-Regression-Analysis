@@ -21,18 +21,18 @@ Are the different group of price ranges
 The dataset provided was comprised of house sale prices for King County spanning over a year and the houses' descriptive variables. By the end of the project, I had cleaned the data, delt with the null values and missing data, binned and created categorical dummy variables, and feature engineering the rest (through log normalization and minmax scaling).
 
 #### On what day and in which season were most of these house bought?
-![](Days%20Houses%20Bought.png)
-![](Season%20Houses%20Bought.png)
+![](Images/Days%20Houses%20Bought.png)
+![](Images/Season%20Houses%20Bought.png)
 
 Throughout the week, most houses are bought during the beginning of the week. The best day to sell is on a Tuesday, whereas the worst day to sell is on a Sunday. Additionally, most houses are bought in the Spring or the Summer which may be because most people have the most time to move and figure out their affairs during those seasons. I would thus, recommend to finalize a deal leading up to on of the earlier days in the week and try to sell during the months of March-August.
 
 #### Are the different group of price ranges
-![](Price%20Dispersion%20on%20Location.png)
+![](Images/Price%20Dispersion%20on%20Location.png)
 
 We can see that our higher priced houses are located near each other in the top of King County. I am unfamiliar with the area itself, but they could possibly have more space and are in better neighborhoods. The lower priced houses are mostly located in the bottom of King County, showing once again that neighborhood influences how price may be estimated. As for our middle priced houses, location varies and is spread across King County. These middle priced houses located in the richer part of the County could be smaller in size and reversely, these middle priced houses located in the poorer part of the County could be bigger in size.
 
 #### Are the different grades located in specific locations?
-![](Grade%20Dispersion%20on%20Location.png)
+![](Images/Grade%20Dispersion%20on%20Location.png)
 
 We can see that higher graded houses are lumped together in a smaller section of the King County Area, whereas the middle grades are spread apart. Looking at both the price disperson graph above, it seems as though the higher graded houses are in similar locations as the higher priced houses, giving us another impression that grade is strongly descriptive of price.
 
