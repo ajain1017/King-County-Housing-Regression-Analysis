@@ -6,6 +6,25 @@
 
 In this project, I explored the cycle of Data Science through the use of the King County Housing Data to help give Home Owners a spot on house price estimate for when they sell.
 
+The packages necessary are loaded at the beginning of the notebook:
+
+    import matplotlib.pyplot as plt
+    %matplotlib inline
+    import pandas as pd
+    import numpy as np
+    import seaborn as sns
+    from seaborn import lmplot
+    from scipy import stats
+    import statsmodels.api as sm
+    from sklearn import preprocessing
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import mean_absolute_error
+    from sklearn.metrics import mean_squared_error
+    from sklearn.metrics import r2_score
+    from sklearn.linear_model import LinearRegression
+    from sklearn.datasets import make_friedman1
+    from sklearn.feature_selection import RFE
+
 
 ## Question
 
@@ -42,15 +61,40 @@ We can see that higher graded houses are lumped together in a smaller section of
 
 Throughout my EDA, I generally went through a simple process to finding my features:
 
-Business Understanding, Data Mining, Data Cleaning, Cleaning and wrangling data, Feature Engineering, Data Exploration, Predictive Modelling
+Business Understanding, Data Mining, Data Cleaning, Feature Engineering, Predictive Modelling
 
-Business Understanding - Clear understanding of problem domain and questions needed to be answered
-Overview of Data Cleaning/Feature Engineering - Cleaning and wrangling data, as well as transforming raw data into meaningful features
-Questions 1, 2, 3 - Extra questions
-Model Results - Data analysis methods to answer question and presenting the findings
+#### Data Mining/Cleaning:
+This process included deleting duplicates found in the ID column and getting rid of the ID column. I also changed each column to the appropriate data types for further manipulation. I looked at the linearity assumption and found that for the most part, most of our continous data experience some sort of linearity with the clear exception of sqft_lot, describing the square footage of the property. I found it difficult to approriately tell linearity exists since there are so many data points and they are very close to each other. However, since they experience some sort of linear relationship, I continued and later dropped the features that were most questionable regarding linearity.
 
-#### Feature Engineering:
-We use 
+For dealing with our placeholder values in sqft_basement, I used my knowledge that sqft_living accounted for entire living space including basement while sqft_above was the living space without the basement. Therefore, I subtracted the two for the rows without basement values and inputed the absolute value of the difference. Noticing that most of our houses don't have basements, I changed the feature to a boolean type, True if the house has a basement and False if it doesn't.
+
+For dealing with out null values, I found that the majority, mean and median of view, yr_renovated and waterfront had value zero. Therefore, i filled the null values with zero. Aftwerwards, waterfront and yr_renovated was changed to a booelan type since there were only two values for waterfront and most of the yr_built values were unique. Since view was over 80% filled with zero values, I decided to drop the feature all together. 
+
+At various moments in the notebook, I run a muticollinearity test to drop any features too correlated to each other.
+
+#### Feature Engineering
+Through this process, I did 3 major changes. They included data bining and creating dummies for our yr_built and zipcode features, normalizing and scaling our conitnous variables, and one hot encoding for the rest of our categorical data.
+
+For years, I decided to group the houses based on changes in the economy for pre 90s houses and then group the houses by decades afterwards. Thus we split into Pre-World War 2 Era, Pre-80s Financial Recession, and afterwards split up into decades as most of the data resides during that period. For zipcodes, I simply split up into eight different groups spaced between 98001 and 98200. Afterwards, I created dummy variable categories and dropped the first to eliminate dummy variable trap.
+
+Before normalizing and scaling our continuous data, I eliminated outliers from our bedrooms and bathrooms data. In our df.describe function used in the beginning of the notebook, the max values of both were incredibly high compared to the mean and our mean values of the were equal to the 25th percent quartile. Therefore, after running the notebook with different max cutoff values, I found it best to keep them with values from 25th percent quartile to a little over the 75th percent quartile. Our data included bedrooms between 5 and 2 and our bathrooms between 3.5 and 2.
+
+I then one hot encoded the categorical data. For normalizing and scaling the continous data, I wanted to use yeo-johnson or box-cox method, however, too many variables were diving by zero and so I simply used log normalization and scaled using MinMax Scalar (which was helpful when inverting later predicted variables). We then check our Ktest values to make sure our features are normal
+
+    sqft_above: KstestResult(statistic=0.5582888064256261, pvalue=0.0)
+    sqft_living15: KstestResult(statistic=0.6391726639552585, pvalue=0.0)
+    sqft_lot: KstestResult(statistic=0.5190848972305282, pvalue=0.0)
+    sqft_lot15: KstestResult(statistic=0.5247564941540667, pvalue=0.0)
+    lat: KstestResult(statistic=0.5558400209515666, pvalue=0.0)
+    price: KstestResult(statistic=0.5422578505445189, pvalue=0.0)
+    long: KstestResult(statistic=0.6476870680571643, pvalue=0.0)
+
+#### Predictive Modelling
+
+To start my modelling, I split my data using a train test split where test size is 33% of the data. I then used a a forward-backward selection algorithm given from learn.co found on data science stack exchange:
+    https://datascience.stackexchange.com/questions/937/does-scikit-learn-have-forward-selection-stepwise-regression-algorithm
+We drop the unnecessary features and run an OLS model using statsmodels.
+
 
 ## Results
 
@@ -85,6 +129,12 @@ We use
 
     Difference:
         $15,295
+        
+This model experienced a Test Set R-Squared of 0.758 meaning about 76% of variability of price was explained by our model. R-squared measureshow close the data is fitted regression line. We also have a Mean Squared Error of 0.00427 and a Root Mean Squared Error of 0.0645. Since we normalized and scaled our price values, these errors don't exp.ain much. However, after inverting our actual test prices and predicted test prices, we found that our Average Price Difference between actual and Predicted was $15,295, which is a 2.5% difference from our average actual price.
+
+Below, we may see our actual test prices plotted versus our predicted. There are clearly errors in our plot points but the general shape is linear along the y=x line.
+
+![](Images/y.png)
 
 ### Model Features Selected
 
@@ -128,4 +178,5 @@ Renovated (Whether the house was renovated)
 
 After making the model, we use recursive feature elimination from sklearn Linear Regression to select the highest ranked features from the features selected above in estimating housing prices.
 
-We find that the most influential 
+We find that the five best features estimating price was: waterfront, sqft_above, sqft_living15, lat, grade_13.0.
+This means the location of the house is very important, including near the water and the house sizes around the house itself. Additionally, having the best grade can strongly affect the price of your house.
