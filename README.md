@@ -91,9 +91,7 @@ I then one hot encoded the categorical data. For normalizing and scaling the con
 
 #### Predictive Modelling
 
-To start my modelling, I split my data using a train test split where test size is 33% of the data. I then used a a forward-backward selection algorithm given from learn.co found on data science stack exchange:
-    https://datascience.stackexchange.com/questions/937/does-scikit-learn-have-forward-selection-stepwise-regression-algorithm
-We drop the unnecessary features and run an OLS model using statsmodels.
+To start my modelling, I split my data using a train test split where test size is 33% of the data. I then used a a forward-backward selection algorithm given from learn.co found on data science stack exchange: https://datascience.stackexchange.com/questions/937/does-scikit-learn-have-forward-selection-stepwise-regression-algorithm. We drop the unnecessary features and run an OLS model using statsmodels.
 
 
 ## Results
@@ -174,7 +172,7 @@ Waterfront (If it is near water)
 
 Renovated (Whether the house was renovated)
 
-### Five Most Descriptuve Features Using Recursive Feature Elimination
+### Five Most Descriptive Features Using Recursive Feature Elimination
 
 After making the model, we use recursive feature elimination from sklearn Linear Regression to select the highest ranked features from the features selected above in estimating housing prices.
 
