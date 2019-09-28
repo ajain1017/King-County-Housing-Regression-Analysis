@@ -21,8 +21,8 @@ Are the different group of price ranges
 The dataset provided was comprised of house sale prices for King County spanning over a year and the houses' descriptive variables. By the end of the project, I had cleaned the data, delt with the null values and missing data, binned and created categorical dummy variables, and feature engineering the rest (through log normalization and minmax scaling).
 
 #### On what day and in which season were most of these house bought?
-(https://github.com/ajain1017/dsc-v2-mod1-final-project-online-ds-pt-081219/blob/master/Images/Days%20Houses%20Bought.png)
-(https://github.com/ajain1017/dsc-v2-mod1-final-project-online-ds-pt-081219/blob/master/Images/Season%20Houses%20Bought.png)
+!(https://github.com/ajain1017/dsc-v2-mod1-final-project-online-ds-pt-081219/blob/master/Images/Days%20Houses%20Bought.png)
+!(https://github.com/ajain1017/dsc-v2-mod1-final-project-online-ds-pt-081219/blob/master/Images/Season%20Houses%20Bought.png)
 
 
 #### Are the different grades located in specific locations?
