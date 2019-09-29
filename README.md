@@ -50,8 +50,11 @@ Throughout the week, most houses are bought during the beginning of the week. Th
 
 We can see that our higher priced houses are located near each other in the top of King County. I am unfamiliar with the area itself, but they could possibly have more space and are in better neighborhoods. The lower priced houses are mostly located in the bottom of King County, showing once again that neighborhood influences how price may be estimated. As for our middle priced houses, location varies and is spread across King County. These middle priced houses located in the richer part of the County could be smaller in size and reversely, these middle priced houses located in the poorer part of the County could be bigger in size.
 
-#### Are the different grades located in specific locations?
-![](Images/Grade%20Dispersion%20on%20Location.png)
+#### Are the different grades located in specific locations? What about condition, waterfront and renovated homes?
+![](Images/Unknown-7.png)
+![](Images/Unknown-6.png)
+![](Images/Unknown-4.png)
+![](Images/Unknown-5.png)
 
 We can see that higher graded houses are lumped together in a smaller section of the King County Area, whereas the middle grades are spread apart. Looking at both the price disperson graph above, it seems as though the higher graded houses are in similar locations as the higher priced houses, giving us another impression that grade is strongly descriptive of price.
 
@@ -148,7 +151,7 @@ Years built from 1940 onwards
 
 Conditions 4 and 5
 
-Bedrooms 3.5 - 4
+4 Bedrooms
 
 Bathrooms 3.25-3.5
 
