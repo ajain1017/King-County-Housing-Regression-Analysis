@@ -181,3 +181,11 @@ After making the model, we use recursive feature elimination from sklearn Linear
 
 We find that the five best features estimating price was: waterfront, sqft_above, sqft_living15, lat, grade_13.0.
 This means the location of the house is very important, including near the water and the house sizes around the house itself. Additionally, having the best grade can strongly affect the price of your house.
+
+### Future Work
+
+Explore how increasing number of bathrooms, bedrooms affects house prices
+Explore how size of bathrooms, bedrooms affects house prices
+Find a way to normalize the continuous data as they are still not normally distributed
+Bin zipcodes with more attention to zipcodes closer to each other
+Standardize and invert all coefficients to find change in price when feature changes
