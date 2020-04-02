@@ -1,30 +1,12 @@
 
 # Anubhav's King County Housing Regression Analysis
 
+(technical presentation can be found in index.ipynb file)
+
 
 ## Introduction
 
 In this project, I explored the cycle of Data Science through the use of the King County Housing Data to help give home owners a better idea on house price estimate for when they sell.
-
-The packages necessary are loaded at the beginning of the notebook:
-
-    import matplotlib.pyplot as plt
-    %matplotlib inline
-    import pandas as pd
-    import numpy as np
-    import seaborn as sns
-    from seaborn import lmplot
-    from scipy import stats
-    import statsmodels.api as sm
-    from sklearn import preprocessing
-    from sklearn.model_selection import train_test_split
-    from sklearn.metrics import mean_absolute_error
-    from sklearn.metrics import mean_squared_error
-    from sklearn.metrics import r2_score
-    from sklearn.linear_model import LinearRegression
-    from sklearn.datasets import make_friedman1
-    from sklearn.feature_selection import RFE
-
 
 ## Question
 
